@@ -167,6 +167,7 @@ public class EstateMiServiceImpl {
       newEstateMi.setIdUser(user);
       newEstateMi.setEtatEstate(2);  // Set other necessary properties
 
+
       // Validate estate if needed
       // validateEstate(newEstateMi);
 
@@ -191,6 +192,46 @@ public class EstateMiServiceImpl {
         return estates.stream()
                 .map(EstateMiMapper::mapToDTO)
                 .collect(Collectors.toList());
+    }
+    public EstateMiDto updateEstateStatusAccepter(Integer id) {
+        Optional<EstateMi> optionalEstate = estateMiRepository.findById(id);
+        if (optionalEstate.isPresent()) {
+            EstateMi estate = optionalEstate.get();
+            estate.setEtatEstate(1); // Update the status
+            EstateMi updatedEstate = estateMiRepository.save(estate);
+
+            EstateMiDto estateMiDto = new EstateMiDto();
+            estateMiDto.setIdEstateMI(updatedEstate.getIdEstateMI());
+            estateMiDto.setEtatEstate(updatedEstate.getEtatEstate());
+            // Set other fields if needed
+
+            return estateMiDto;
+        } else {
+            return null;
+        }
+    }
+    public EstateMiDto updateEstateStatusRefuser(Integer id) {
+        Optional<EstateMi> optionalEstate = estateMiRepository.findById(id);
+        if (optionalEstate.isPresent()) {
+            EstateMi estate = optionalEstate.get();
+            estate.setEtatEstate(3); // Update the status
+            EstateMi updatedEstate = estateMiRepository.save(estate);
+
+            EstateMiDto estateMiDto = new EstateMiDto();
+            estateMiDto.setIdEstateMI(updatedEstate.getIdEstateMI());
+            estateMiDto.setEtatEstate(updatedEstate.getEtatEstate());
+            // Set other fields if needed
+
+            return estateMiDto;
+        } else {
+            return null;
+        }
+    }
+    public long countEstates() {
+        return estateMiRepository.countEstates();
+    }
+    public List<Object[]> countEstatesByCategory() {
+        return estateMiRepository.countEstatesByCategory();
     }
 
 }

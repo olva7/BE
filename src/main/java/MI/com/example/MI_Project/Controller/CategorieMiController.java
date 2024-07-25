@@ -24,5 +24,14 @@ public class CategorieMiController {
         List<CategorieMi> categories = categorieMiService.getAllCategories();
         return ResponseEntity.ok(categories);
     }
+    @GetMapping("/{id}")
+    public ResponseEntity<String> getCategorieMiById(@PathVariable Integer id) {
+        String categorieMi = categorieMiService.findCategorieMiById(id);
+        if (categorieMi != null) {
+            return ResponseEntity.ok(categorieMi);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
 }

@@ -29,7 +29,7 @@ public class EstateMiMapper {
                     .setApportPropreMinimal(estateMi.getApportPropreMinimal())
                     //.setIdAgenceImmobiliere(AgenceImmobilierMapper.entityToDto(estateMi.getIdAgence()))
                     .setIdUser(MapperModel.mapEntityToDto(estateMi.getIdUser()))
-
+                    .setCategorieMiTag(estateMi.getCategorieMiTag())
 
                     .setIdTypeEstate(TypeEstateMiMapper.mapToDTO(estateMi.getIdTypeEstate()))
                     .setIdLocalisation(LocalisationMiMapper.mapToDTO(estateMi.getIdLocalisation()))
@@ -48,6 +48,7 @@ public class EstateMiMapper {
             estateMi.setIdEstateMI(estateMiDto.getIdEstateMI());
             estateMi.setAddressEstate(estateMiDto.getAddressEstate());
             //estateMi.setDateAjout(estateMiDto.getDateAjout());
+            estateMi.setCategorieMiTag(estateMiDto.getCategorieMiTag());
             //estateMi.setDisponibilite(estateMiDto.getDisponibilite());
             estateMi.setLatitude(estateMiDto.getLatitude());
             estateMi.setLongitude(estateMiDto.getLongitude());

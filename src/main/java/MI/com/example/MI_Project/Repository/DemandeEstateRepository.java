@@ -12,4 +12,14 @@ import java.util.List;
 public interface DemandeEstateRepository extends JpaRepository<DemandeEstate,Integer> {
 
     List<DemandeEstate> findByAppUser_IdUser(Integer userId);
+    @Query("SELECT COUNT(d) FROM DemandeEstate d")
+    long countDemandes();
+    @Query("SELECT COUNT(e) FROM EstateMi e WHERE e.etatEstate = 2")
+    long countEstatesByEtatEstateEquals2();
+    @Query("SELECT COUNT(e) FROM EstateMi e WHERE e.etatEstate = 3")
+    long countEstatesByEtatEstateEquals3();
+    @Query("SELECT COUNT(e) FROM EstateMi e WHERE e.etatEstate = 1")
+    long countEstatesByEtatEstateEquals1();
+
+
 }

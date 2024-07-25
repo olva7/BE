@@ -16,7 +16,26 @@ public class DemandeEstateController {
     @Autowired
     private DemandeEstateService demandeEstateService;
 
-
+    @GetMapping("count_demande")
+    public ResponseEntity<Long> countDemandes() {
+        long count = demandeEstateService.countDemandes();
+        return ResponseEntity.ok(count);
+    }
+    @GetMapping("count-etat-2")
+    public ResponseEntity<Long> countEstatesByEtatEstateEquals2() {
+        long count = demandeEstateService.countEstatesByEtatEstateEquals2();
+        return ResponseEntity.ok(count);
+    }
+    @GetMapping("count-etat-3")
+    public ResponseEntity<Long> countEstatesByEtatEstateEquals3() {
+        long count = demandeEstateService.countEstatesByEtatEstateEquals3();
+        return ResponseEntity.ok(count);
+    }
+    @GetMapping("count-etat-1")
+    public ResponseEntity<Long> countEstatesByEtatEstateEquals1() {
+        long count = demandeEstateService.countEstatesByEtatEstateEquals1();
+        return ResponseEntity.ok(count);
+    }
 
     @PostMapping("demande")
     public ResponseEntity<DemandeEstate> createDemande(

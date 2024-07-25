@@ -28,6 +28,7 @@ public class MapperModel {
         dto.setEmail(user.getEmail());
         dto.setPhonenumber(user.getPhonenumber());
         dto.setDateDeNaissance(user.getDateDeNaissance());
+        user.setDateCreation(dto.getDateCreation());
         //dto.setRole(user.getRole());*/
         //dto.setDemandeEstateList(DemandeEstateMapper.mapToDTOList(user.getDemandeEstateList()));
         dto.setRole(user.getRole());
@@ -47,6 +48,7 @@ public class MapperModel {
         user.setEmail(dto.getEmail());
         user.setPhonenumber(dto.getPhonenumber());
         user.setDateDeNaissance(dto.getDateDeNaissance());
+        dto.setDateCreation(user.getDateCreation());
         //user.setDemandeEstateList(DemandeEstateMapper.mapToEntityList(dto.getDemandeEstateList()));
         user.setRole(dto.getRole());
 

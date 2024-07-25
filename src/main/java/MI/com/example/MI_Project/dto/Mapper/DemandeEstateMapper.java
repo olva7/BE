@@ -21,7 +21,7 @@ public class DemandeEstateMapper {
                     .setReference(demandeEstate.getReference())
                     //.setDateCreation(demandeEstate.getDateCreation())
                     .setPrixTotale(demandeEstate.getPrixTotale())
-                   // .setEtatDemande(EtatDemandeMapper.mapToDTO(demandeEstate.getEtatDemande()))
+                    .setEtatDemande(EtatDemandeMapper.mapToDTO(demandeEstate.getEtatDemande()))
 
                     .setIdUser(MapperModel.mapEntityToDto(demandeEstate.getAppUser()));
 
@@ -39,7 +39,7 @@ public class DemandeEstateMapper {
             //demandeEstate.setDateCreation(demandeEstateDto.getDateCreation());
             demandeEstate.setAppUser(MapperModel.mapDtoToEntity(demandeEstateDto.getIdUser()));
             demandeEstate.setPrixTotale(demandeEstateDto.getPrixTotale());
-            //demandeEstate.setEtatDemande(EtatDemandeMapper.mapToEntity(demandeEstateDto.getEtatDemande()));
+            demandeEstate.setEtatDemande(EtatDemandeMapper.mapToEntity(demandeEstateDto.getEtatDemande()));
 
 
 

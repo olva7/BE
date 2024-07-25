@@ -100,6 +100,18 @@ public class DemandeEstateService {
             throw new NoSuchElementException("Demande with ID " + id + " not found");
         }
     }
+    public long countEstatesByEtatEstateEquals2() {
+        return demandeEstateRepository.countEstatesByEtatEstateEquals2();
+    }
+    public long countEstatesByEtatEstateEquals3() {
+        return demandeEstateRepository.countEstatesByEtatEstateEquals3();
+    }
+    public long countEstatesByEtatEstateEquals1() {
+        return demandeEstateRepository.countEstatesByEtatEstateEquals1();
+    }
+    public long countDemandes() {
+        return demandeEstateRepository.countDemandes();
+    }
 
     public List<DemandeEstateDto> getDemandesByUser(Integer userId) {
         List<DemandeEstate> demandesByUser = demandeEstateRepository.findByAppUser_IdUser(userId);

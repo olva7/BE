@@ -5,6 +5,7 @@ import MI.com.example.MI_Project.security.entities.AppUser;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import jakarta.persistence.Transient;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,6 +16,7 @@ import lombok.experimental.Accessors;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Accessors(chain = true)
@@ -50,7 +52,7 @@ public class EstateMiDto implements Serializable {
     private Integer loyer;
     private String urlEstate;
     private String libEstate;
-
+    //private LocalDateTime dateAjout;
     private String categorieMiTag;
     private List<CaracteristiqueEstateMiDto> caracteristiqueEstateList;
     private List<CaracteristiqueComposantDto> caracteristiqueComposantList;

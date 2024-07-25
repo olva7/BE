@@ -87,13 +87,41 @@ public class EstateMiController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred while adding the estate.");
         }
     }*/
+    @PutMapping("/update-status-accepter/{id}")
+    public ResponseEntity<EstateMiDto> updateEstateStatusAccepter(@PathVariable Integer id) {
+        EstateMiDto updatedEstate = estateMiService.updateEstateStatusAccepter(id);
+        if (updatedEstate != null) {
+            return ResponseEntity.ok(updatedEstate);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
+    @PutMapping("/update-status-refuser/{id}")
+    public ResponseEntity<EstateMiDto> updateEstateStatusRefuser(@PathVariable Integer id) {
+        EstateMiDto updatedEstate = estateMiService.updateEstateStatusRefuser(id);
+        if (updatedEstate != null) {
+            return ResponseEntity.ok(updatedEstate);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    @GetMapping("/count")
+    public ResponseEntity<Long> countEstates() {
+        long count = estateMiService.countEstates();
+        return ResponseEntity.ok(count);
+    }
 
     @GetMapping("get/{id}")
     public ResponseEntity<EstateMiDto> getEstate(@PathVariable Integer id) {
         return estateMiService.getEstateById(id)
                 .map(ResponseEntity::ok)  // if the estate is found, return DTO with status 200
                 .orElseGet(() -> ResponseEntity.notFound().build());  // if not found, return 404 Not Found
+    }
+    @GetMapping("count-by-category")
+    public ResponseEntity<List<Object[]>> countEstatesByCategory() {
+        List<Object[]> countByCategory = estateMiService.countEstatesByCategory();
+        return ResponseEntity.ok(countByCategory);
     }
     @GetMapping("/estates")
     public List<EstateMiDto> getAllEstate() {

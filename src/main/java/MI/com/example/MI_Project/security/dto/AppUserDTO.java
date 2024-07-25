@@ -30,7 +30,7 @@ public class AppUserDTO implements Serializable {
     private String email;
     private Date dateDeNaissance;
     private Integer phonenumber;
-    //private LocalDateTime dateCreation;
+    private LocalDateTime dateCreation;
     private AppRole role;
     private String password;
 

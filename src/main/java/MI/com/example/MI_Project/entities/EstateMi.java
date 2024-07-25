@@ -46,6 +46,7 @@ public class EstateMi implements Serializable {
     @JoinColumn(name = "id_type", nullable = false)
     private TypeEstateMi idTypeEstate;
 
+
     //@NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     //@OnDelete(action = OnDeleteAction.RESTRICT)
@@ -66,6 +67,7 @@ public class EstateMi implements Serializable {
     @Column(name = "date_ajout")
     private LocalDate dateAjout;
 
+
     @Column(name = "date_construction")
     private LocalDate dateConstruction;
 
@@ -85,6 +87,7 @@ public class EstateMi implements Serializable {
     @Size(max = 25)
     @Column(name = "longitude", length = 25)
     private String longitude;
+
     @Column(name = "apport_propre")
     private Integer apportPropre;
     @Column(name = "etat_estate")

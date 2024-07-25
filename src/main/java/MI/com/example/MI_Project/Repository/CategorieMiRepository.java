@@ -12,4 +12,5 @@ import java.util.List;
 @Repository
 public interface CategorieMiRepository extends JpaRepository<CategorieMi, Integer> {
 
+
 }

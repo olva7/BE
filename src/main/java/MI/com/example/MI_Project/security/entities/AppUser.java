@@ -35,13 +35,13 @@ public class AppUser implements UserDetails {
     @Column(name = "Email", unique = true)
     private String email;
     private Date dateDeNaissance;
-    //@Column(name = "date_creation")
-    //private LocalDateTime dateCreation;
+    @Column(name = "date_creation")
+    private LocalDateTime dateCreation;
 
-    /*@PrePersist
+    @PrePersist
     protected void onCreate() {
         dateCreation = LocalDateTime.now();
-    }*/
+    }
     private String password;
 
     @Lob

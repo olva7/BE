@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CategorieMiService {
@@ -23,8 +24,13 @@ public class CategorieMiService {
         return categorieMiRepository.findAll();
     }
 
-
+    public String findCategorieMiById(Integer id) {
+        Optional<CategorieMi> result = categorieMiRepository.findById(id);
+        return result.map(CategorieMi::getCategorieMi).orElse(null);  // Retourne le type de la catégorie ou null si non trouvé
     }
+
+
+}
 
 
 
